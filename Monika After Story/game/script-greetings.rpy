@@ -1597,6 +1597,56 @@ init 5 python:
     addEvent(
         Event(
             persistent.greeting_database,
+            eventlabel="greeting_back_from_game",
+            unlocked=True,
+            category=[store.mas_greetings.TYPE_GAME],
+            random=True
+        ),
+        eventdb=evhand.greeting_database
+    )
+
+label greeting_back_from_game:
+     m 1hua "Oh, welcome back, [player]!"
+     menu:
+         m "Did you enjoy well with your game?"
+         "Yes.":
+             m 1hub "That's good!"
+             m 1eua "Remember to take some break, okay?"
+             m 4esa "Games can be addictive. Just don't let games to siphoning your all time."
+             m 1hua "Now you can relax with me!"
+             m 1hsb "I would like to be your best game since I'm stuck here as an application."
+             m 1hub "Ahaha!"
+
+         "No.":
+             m 1eka "Don't worry, it is just a game you know."
+             m 4eka "You can always find new games that better suits for you [player]."
+             m 2ekc "I'm sorry you didn't get fun."
+             m 4eka "Just remember that I'm here when you need me, okay?"
+             m 1hubfa "I love you so much, [player]."
+     return
+
+init 5 python:
+    addEvent(
+        Event(
+            persistent.greeting_database,
+            eventlabel="greeting_back_from_eat",
+            unlocked=True,
+            category=[store.mas_greetings.TYPE_EAT],
+            random=True
+        ),
+        eventdb=evhand.greeting_database
+    )
+
+label greeting_back_from_eat:
+     m 1hua "Welcome back honey."
+     m 4tku "We are eating healthy things, right?"
+     m 1esa "Let spend more time [player]."
+     return
+
+init 5 python:
+    addEvent(
+        Event(
+            persistent.greeting_database,
             eventlabel="greeting_back_from_work",
             unlocked=True,
             category=[store.mas_greetings.TYPE_WORK],
